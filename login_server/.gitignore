@@ -1,0 +1,11 @@
+# .gitignore file
+
+# environment file
+.env
+
+# modules files
+node_modules
+
+# extra files
+.DS_Store
+views-extra
