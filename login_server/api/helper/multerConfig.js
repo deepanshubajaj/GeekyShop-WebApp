@@ -1,24 +1,18 @@
 const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary = require('./cloudinaryConfig');
 
-// Set up multer for image uploads (optional)
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        // Folder where images will be saved
-        cb(null, 'uploads/');
+// Set up Cloudinary storage
+const storage = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: {
+        resource_type: "auto",
+        folder: 'uploadsGeekyShop', // The name of the folder in Cloudinary
+        allowed_formats: ['jpg', 'png', 'jpeg', 'gif'], // Allowed formats
     },
-    filename: function (req, file, cb) {
-        const ext = path.extname(file.originalname);
-        // Save image with a unique timestamp
-        cb(null, Date.now() + ext);
-    }
 });
-const upload = multer({ storage: storage });
 
-// Make sure the 'uploads' directory exists
-if (!fs.existsSync('uploads')) {
-    fs.mkdirSync('uploads');
-}
+// Set up multer with Cloudinary storage
+const upload = multer({ storage: storage });
 
 module.exports = upload;

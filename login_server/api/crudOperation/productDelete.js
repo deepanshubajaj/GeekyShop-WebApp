@@ -1,13 +1,12 @@
 const express = require('express');
 const Product = require('../../models/Products');
-const path = require('path');
-const fs = require('fs');
+const cloudinary = require('./../helper/cloudinaryConfig');
 
 const router = express.Router();
 
 // DELETE route to remove a product by its ID
 router.delete('/', (req, res) => {
-    const { productId } = req.body;  // Extract productId from the request body
+    const { productId } = req.body;  
 
     // Validate if productId is provided
     if (!productId) {
@@ -27,23 +26,30 @@ router.delete('/', (req, res) => {
                 });
             }
 
-            // Image path (if it exists)
-            const imagePath = product.image ? path.join(__dirname, './../../uploads', product.image) : null;
+            // Get the public ID of the image
+            const imageUrl = product.image;
+            const publicId = imageUrl.split('/').pop().split('.')[0]; 
 
             // Delete the product from the database
             return Product.findByIdAndDelete(productId)
                 .then(deletedProduct => {
-                    // If the product has an image, delete the image file
-                    if (imagePath && fs.existsSync(imagePath)) {
-                        // Delete the file from the filesystem
-                        fs.unlinkSync(imagePath);
+                    // If the product has an image, delete the image from Cloudinary
+                    if (imageUrl) {
+                        return cloudinary.uploader.destroy(publicId)
+                            .then(() => {
+                                return res.json({
+                                    status: "SUCCESS",
+                                    message: "Product deleted successfully!",
+                                    data: deletedProduct
+                                });
+                            });
+                    } else {
+                        return res.json({
+                            status: "SUCCESS",
+                            message: "Product deleted successfully!",
+                            data: deletedProduct
+                        });
                     }
-
-                    return res.json({
-                        status: "SUCCESS",
-                        message: "Product deleted successfully!",
-                        data: deletedProduct
-                    });
                 });
         })
         .catch(err => {

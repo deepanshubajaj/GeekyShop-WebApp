@@ -1,27 +1,44 @@
 const Product = require('../../models/Products');
-const path = require('path');
-const fs = require('fs');
+const cloudinary = require('./cloudinaryConfig');
 
 // Remove extra uploaded images
 const cleanupUnusedImages = async () => {
     try {
         // Get all products from the database
         const products = await Product.find();
-        const existingImages = new Set(products.map(product => product.image).filter(image => image));
+        
+        // Extract public IDs from the product images
+        const existingImages = new Set(
+            products.map(product => {
+                const imageUrl = product.image;
+                if (imageUrl) {
+                    // Extract the public ID from the Cloudinary URL
+                    const match = imageUrl.match(/\/v[0-9]+\/(.*)\./);
+                    return match ? match[1] : null;
+                }
+                return null;
+            }).filter(Boolean) // Remove null values (in case the match failed)
+        );
 
-        // Read the uploads directory
-        const uploadDir = path.join(__dirname, './../../uploads');
-        const files = fs.readdirSync(uploadDir);
+        // List all images in the Cloudinary folder
+        const folderName = 'uploadsGeekyShop'; 
+        const cloudinaryImages = await cloudinary.api.resources({
+            type: 'upload',
+            prefix: folderName,
+            max_results: 500, 
+        });
 
-        // Initialize a counter for deleted images
         let deletedCount = 0;
 
-        // Loop through the files and delete those not in the database
-        for (const file of files) {
-            if (!existingImages.has(file)) {
-                const filePath = path.join(uploadDir, file);
-                fs.unlinkSync(filePath); // Delete the file
-                console.log(`Deleted unused image: ${file}`);
+        // Loop through the Cloudinary images and delete those not in the database
+        for (const resource of cloudinaryImages.resources) {
+            const publicId = resource.public_id; 
+            const imageUrl = resource.secure_url;
+
+            if (!existingImages.has(publicId)) {
+                // Delete the image from Cloudinary using its public ID
+                await cloudinary.uploader.destroy(publicId); 
+                console.log(`Deleted unused image: ${imageUrl}`);
                 deletedCount++;
             }
         }

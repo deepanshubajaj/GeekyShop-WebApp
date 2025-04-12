@@ -1,19 +1,13 @@
 const express = require('express');
 const Product = require('../../models/Products');
 const upload = require('../helper/multerConfig');
-const path = require('path');
 
 const router = express.Router();
 
 // POST route to save a new product
 router.post('/', upload.single('image'), (req, res) => {
     let { title, description, price, brand, date } = req.body;
-    const image = req.file ? req.file.filename : null;
-
-    // Log the image path to the console
-    if (image) {
-        console.log("Uploaded image path: ", path.join(__dirname, './../../uploads', image));
-    }
+    const image = req.file ? req.file.path : null; 
 
     // Trim input data
     title = title.trim();
@@ -53,7 +47,7 @@ router.post('/', upload.single('image'), (req, res) => {
                     price,
                     brand,
                     date,
-                    image,
+                    image, 
                 });
 
                 // Save the new product only in the 'products' collection
