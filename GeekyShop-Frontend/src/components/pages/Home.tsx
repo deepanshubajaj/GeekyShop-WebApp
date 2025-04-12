@@ -23,7 +23,6 @@ import {
 import { Add, Edit, Delete, Visibility } from "@mui/icons-material";
 import placeholderImage from '../../assets/placeholderImage.png'
 const baseApiUrl = import.meta.env.VITE_API_BASE_URL;
-const baseImageApiUrl = import.meta.env.VITE_IMAGE_BASE_URL;
 
 interface Props { }
 
@@ -97,7 +96,7 @@ class Home extends Component<Props, State> {
       const data = await response.json();
 
       if (data.status === "SUCCESS") {
-        const baseUrl = `${baseImageApiUrl}/uploads/`; // Base URL for images
+        //const baseUrl = `${baseImageApiUrl}/uploads/`; // Base URL for images
 
         const inventory = data.data.map((item: any, index: number) => ({
           sno: index + 1,
@@ -107,7 +106,7 @@ class Home extends Component<Props, State> {
           description: item.description,
           price: item.price,
           brand: item.brand,
-          image: item.image ? baseUrl + item.image : placeholderImage, // Prepend the base URL to the image filename
+          image: item.image ? item.image : placeholderImage, // Prepend the base URL to the image filename
           date: new Date(item.date).toLocaleDateString(),
         }));
         this.setState({ inventory });
@@ -257,10 +256,15 @@ class Home extends Component<Props, State> {
       formData.append("image", this.state.selectedImage);
     } else {
       // If no new image is selected, send the existing image filename
-      const imageFileName = selectedItem.image ? selectedItem.image.split('/').pop() : placeholderImage;
+      const imageFileName = selectedItem.image ? selectedItem.image : placeholderImage;
       console.log("imageFileName", imageFileName); // Log the extracted image file name
       formData.append("image", imageFileName); // Send just the image file name
     }
+
+    // Log the FormData for debugging
+    for (let pair of formData.entries()) {
+      console.log(`${pair[0]}: ${pair[1]}`);
+  }
 
     try {
       const response = await fetch(`${baseApiUrl}/update-product`, {
@@ -362,7 +366,7 @@ class Home extends Component<Props, State> {
             <TableBody>
               {inventory.map((item, index) => (
                 <TableRow
-                  key={item.id}
+                  key={item.fullId}
                   sx={{
                     "&:nth-of-type(odd)": { backgroundColor: "#f9f9f9" },
                     "&:hover": { backgroundColor: "#e3f2fd" },
