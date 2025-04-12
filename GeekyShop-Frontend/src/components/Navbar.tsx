@@ -1,9 +1,19 @@
 import { Component } from "react";
 import { AppBar, Box, Toolbar, Typography, Button } from "@mui/material";
 import { NavLink } from "react-router-dom";
+import { withRouter } from "../helpers/withRouter";
 
-class Navbar extends Component {
-  state = {
+// Props with navigate included
+interface Props {
+  navigate: (path: string) => void;
+}
+
+interface State {
+  isLoggedIn: boolean;
+}
+
+class Navbar extends Component<Props, State> {
+  state: State = {
     isLoggedIn: localStorage.getItem("userIsUp") === "true",
   };
 
@@ -16,12 +26,13 @@ class Navbar extends Component {
     localStorage.removeItem("hasReloaded");
     localStorage.removeItem("userLogin/SignupDetails");
     this.setState({ isLoggedIn: false });
-    window.location.href = "/login";
+
+    this.props.navigate("/login");
   };
 
   handleLogin = () => {
     localStorage.setItem("userIsUp", "true");
-    this.setState({ isLoggedIn: true }); // Update state
+    this.setState({ isLoggedIn: true });
   };
 
   getNavLinkStyle = ({ isActive }: { isActive: boolean }) => ({
@@ -59,14 +70,12 @@ class Navbar extends Component {
               <Button sx={{ color: "inherit", textTransform: "none" }}>Bored? Play Now😊</Button>
             </NavLink>
 
-            {/* Conditionally render Home NavLink based on `userIsUp` */}
             {isLoggedIn && (
               <NavLink to="/secretgame" style={this.getNavLinkStyle}>
-                <Button sx={{ color: "inherit", textTransform: "none" }}>Fury Unleashed🐍 </Button>
+                <Button sx={{ color: "inherit", textTransform: "none" }}>Fury Unleashed🐍</Button>
               </NavLink>
             )}
 
-            {/* Conditionally render Home NavLink based on `userIsUp` */}
             {isLoggedIn && (
               <NavLink to="/" style={this.getNavLinkStyle}>
                 <Button sx={{ color: "inherit", textTransform: "none" }}>Home🏡</Button>
@@ -93,4 +102,4 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+export default withRouter(Navbar);
