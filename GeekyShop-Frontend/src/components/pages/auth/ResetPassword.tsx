@@ -4,6 +4,7 @@ import axios from "axios";
 import PassChangeImage from "../../../assets/undrawPassChange.png";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { Navigate } from "react-router-dom"; // Import Navigate for redirection
 const baseApiUrl = import.meta.env.VITE_API_BASE_URL;
 
 // State interface
@@ -13,6 +14,7 @@ interface ResetPasswordState {
   message: string;
   showPassword: boolean;
   showConfirmPassword: boolean;
+  redirectToLogin: boolean; // State to trigger redirection
 }
 
 class ResetPassword extends Component<{}, ResetPasswordState> {
@@ -22,6 +24,7 @@ class ResetPassword extends Component<{}, ResetPasswordState> {
     message: "",
     showPassword: false,
     showConfirmPassword: false,
+    redirectToLogin: false, // Initialize redirect state
   };
 
   // Handle input changes
@@ -75,14 +78,9 @@ class ResetPassword extends Component<{}, ResetPasswordState> {
       });
 
       if (response.data.status === "SUCCESS") {
-        this.setState({ message: response.data.message });
-
+        this.setState({ message: response.data.message, redirectToLogin: true }); // Trigger redirect
         localStorage.removeItem("userIsUpRP");
         localStorage.removeItem("userPassResetDetails");
-
-        setTimeout(() => {
-          window.location.href = "/login"; // Redirect after success
-        }, 2000);
       } else {
         this.setState({ message: response.data.message });
       }
@@ -92,7 +90,12 @@ class ResetPassword extends Component<{}, ResetPasswordState> {
   };
 
   render() {
-    const { newPassword, confirmPassword, message, showPassword, showConfirmPassword } = this.state;
+    const { newPassword, confirmPassword, message, showPassword, showConfirmPassword, redirectToLogin } = this.state;
+
+    // Redirect if needed
+    if (redirectToLogin) {
+      return <Navigate to="/login" />; // Redirect to login page using Navigate
+    }
 
     return (
       <Grid container sx={{ height: "88vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#f4f4f9" }}>
