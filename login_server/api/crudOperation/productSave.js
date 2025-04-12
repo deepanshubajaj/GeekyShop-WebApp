@@ -1,6 +1,7 @@
 const express = require('express');
 const Product = require('../../models/Products');
 const upload = require('../helper/multerConfig');
+const path = require('path');
 
 const router = express.Router();
 
