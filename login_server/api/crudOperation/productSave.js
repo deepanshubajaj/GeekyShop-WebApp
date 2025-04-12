@@ -11,7 +11,7 @@ router.post('/', upload.single('image'), (req, res) => {
 
     // Log the image path to the console
     if (image) {
-        console.log("Uploaded image path: ", path.join(__dirname, '../../uploads', image));
+        console.log("Uploaded image path: ", path.join(__dirname, './../../uploads', image));
     }
 
     // Trim input data

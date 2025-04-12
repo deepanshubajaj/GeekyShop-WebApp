@@ -19,7 +19,7 @@ app.use(cors());
 
 // Serve Static Files from 'uploads' folder
 const path = require('path');
-app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve files from the 'uploads' directory
+app.use('/uploads', express.static(path.join(__dirname, './uploads'))); // Serve files from the 'uploads' directory
 
 // For accepting JSON data in POST requests
 app.use(express.json()); // Automatically parses incoming JSON data

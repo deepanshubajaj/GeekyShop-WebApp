@@ -28,7 +28,7 @@ router.delete('/', (req, res) => {
             }
 
             // Image path (if it exists)
-            const imagePath = product.image ? path.join(__dirname, '..', 'uploads', product.image) : null;
+            const imagePath = product.image ? path.join(__dirname, './../../uploads', product.image) : null;
 
             // Delete the product from the database
             return Product.findByIdAndDelete(productId)
