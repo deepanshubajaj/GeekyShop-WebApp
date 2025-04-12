@@ -9,6 +9,11 @@ router.post('/', upload.single('image'), (req, res) => {
     let { title, description, price, brand, date } = req.body;
     const image = req.file ? req.file.filename : null;
 
+    // Log the image path to the console
+    if (image) {
+        console.log("Uploaded image path: ", path.join(__dirname, '../../uploads', image));
+    }
+
     // Trim input data
     title = title.trim();
     description = description.trim();
