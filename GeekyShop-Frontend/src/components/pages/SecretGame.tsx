@@ -122,7 +122,7 @@ const SecretGame: React.FC = () => {
       newSnake.pop();
     }
 
-    if (nextScore >= 3) {
+    if (nextScore >= 50) {
       setGameOver(true);
       victoryAudio.play(); // Play victory audio
       return;
@@ -201,7 +201,7 @@ const SecretGame: React.FC = () => {
 
           {gameOver && (
             <div style={{ textAlign: 'center', marginTop: '20px' }}>
-              {score >= 3 ? (
+              {score >= 50 ? (
                 <Typography variant="h4" color="success.main" gutterBottom>
                   🎉 You Win! Congratulations! 🏆
                 </Typography>
