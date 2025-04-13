@@ -75,7 +75,7 @@ Clone this repository to your local machine:
 ### 🖼️ Icon and Logo
 
 <p align="center">
-  <img src="ProjectOutputs/Snapshots/vite.svg" alt="Icon1"  />
+  <img src="ProjectOutputs/Snapshots/vite.svg" alt="Icon1" width="40%"  />
 </p>
 
 <p align="center">
@@ -83,7 +83,7 @@ Clone this repository to your local machine:
 </p>
 
 <p align="center">
-  <img src="ProjectOutputs/Snapshots/logo1.png" alt="Icon2"  />
+  <img src="ProjectOutputs/Snapshots/logo1.png" alt="Icon2" width="40%" />
 </p>
 
 <p align="center">
