@@ -111,17 +111,21 @@ const SecretGame: React.FC = () => {
 
     newSnake.unshift(head);
 
+    let nextScore = score;
+
     if (head.x === food.x && head.y === food.y) {
-      setScore((prev) => prev + 1);
+      nextScore = score + 1;
+      setScore(nextScore);
       setFood(generateFood());
       foodEatAudio.play(); // Play food eat sound
     } else {
       newSnake.pop();
     }
 
-    if (score + 1 >= 50) {
+    if (nextScore >= 3) {
       setGameOver(true);
       victoryAudio.play(); // Play victory audio
+      return;
     }
 
     setSnake(newSnake);
@@ -197,7 +201,7 @@ const SecretGame: React.FC = () => {
 
           {gameOver && (
             <div style={{ textAlign: 'center', marginTop: '20px' }}>
-              {score >= 50 ? (
+              {score >= 3 ? (
                 <Typography variant="h4" color="success.main" gutterBottom>
                   🎉 You Win! Congratulations! 🏆
                 </Typography>
