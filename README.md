@@ -50,7 +50,7 @@ Clone this repository to your local machine:
     npm run dev     # For local development
 ```
 ```bash
-    vite build   # For production build using Vite or - npm run build
+    vite build   # For production build using Vite or - ' npm run build '
 ```
 ### ⚙️ Backend
 
@@ -69,8 +69,13 @@ Clone this repository to your local machine:
 ```bash
     node server.js          # For production
 ```
+
+---
+
 ### 🖼️ UI Sneak Peek
 
+
+---
 
 ## 📱 Live Demo
 
