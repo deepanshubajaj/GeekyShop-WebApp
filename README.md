@@ -1,7 +1,7 @@
 <h1 align="center">🛍️ Geeky Shop - Full Stack Web App</h1>
 
 <p align="center">
-  <a href="https://geeky-shop-web-app.vercel.app/"><strong>Live Demo</strong></a> • 
+  <a href="https://geeky-shop-web-app.vercel.app/"><strong>Live Demo</strong></a>   •   
   <a href="https://geeky-shop-web-app.vercel.app/contact"><strong>Contact Me</strong></a>
 </p>
 
@@ -86,7 +86,7 @@ Clone this repository to your local machine:
 
 ---
 
-## Contributing
+## 🤝 Contributing
 
 **No contributions are currently accepted for this project.** Feel free to use or explore the code as you wish, but please note that modifications or additions are not allowed unless explicitly authorized by the owner.
 
