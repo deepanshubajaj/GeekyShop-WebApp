@@ -14,7 +14,7 @@ import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import BlackBG from '../../assets/blackBG.jpg';
 import victoryAudio from '../../assets/audios/victory.mp3';
 import funnyBgMusic from '../../assets/audios/funnyBgMusic.mp3';
-import WinGif from '../../assets/WinGame.gif.mp4';
+import WinGif from '../../assets/WinGame.gif';
 
 type CardType = {
   value: string;
