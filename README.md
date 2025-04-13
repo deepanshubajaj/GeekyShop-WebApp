@@ -120,9 +120,9 @@ Every contribution makes the project better. Thanks for helping out! ✨
 
 ---
 
-**Note:** No contributions are currently accepted for this project. Feel free to use or explore the code as you wish, but please note that modifications or additions are not allowed unless explicitly authorized by the owner.
+**Note:** **No contributions are currently accepted for this project.** Feel free to use or explore the code as you wish, but please note that modifications or additions are not allowed unless explicitly authorized by the owner - **Deepanshu Bajaj**.
 
 ## 📃 License
 
-This project is **"All Rights Reserved"**. You may not use, modify, or distribute this code without the explicit permission of the owner.
+This project is **"All Rights Reserved"**. You may not use, modify, or distribute this code without the explicit permission of the owner - **Deepanshu Bajaj**.
 
