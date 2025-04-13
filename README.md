@@ -38,7 +38,7 @@ Clone this repository to your local machine:
     git clone https://github.com/deepanshubajaj/GeekyShop-WebApp.git
 ```
 
-### 🚀 Frontend
+### 🚀 [Frontend](https://github.com/deepanshubajaj/GeekyShop-WebApp/blob/main/GeekyShop-Frontend/README.md)
 
 ```bash
     cd GeekyShop-Frontend
@@ -283,6 +283,8 @@ Every contribution makes the project better. Thanks for helping out! ✨
 ---
 
 **Note:** **No contributions are currently accepted for this project.** Feel free to use or explore the code as you wish, but please note that modifications or additions are not allowed unless explicitly authorized by the owner - **Deepanshu Bajaj**.
+
+---
 
 ## 📃 License
 
