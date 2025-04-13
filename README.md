@@ -207,11 +207,31 @@ Clone this repository to your local machine:
 
 ## 🧠 Tech Stack
 
-| Frontend       | Backend     | Tools/Services     |
-| -------------- | ----------- | ------------------ |
-| React + Vite   | Node.js     | TypeScript         |
-| Tailwind CSS   | Express.js  | Vercel (Hosting)   |
-| React Router   | Nodemon     | EmailJS / Contact  |
+<p align="center">
+  <table>
+    <tr>
+      <th>Frontend</th>
+      <th>Backend</th>
+      <th>Tools/Services</th>
+    </tr>
+    <tr>
+      <td>React + Vite</td>
+      <td>Node.js</td>
+      <td>TypeScript</td>
+    </tr>
+    <tr>
+      <td>Tailwind CSS</td>
+      <td>Express.js</td>
+      <td>Vercel (Hosting)</td>
+    </tr>
+    <tr>
+      <td>React Router</td>
+      <td>Nodemon</td>
+      <td>EmailJS / Contact</td>
+    </tr>
+  </table>
+</p>
+
 
 ---
 
