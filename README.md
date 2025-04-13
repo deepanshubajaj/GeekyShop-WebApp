@@ -79,7 +79,119 @@ Clone this repository to your local machine:
 </p>
 
 <p align="center">
-  *Screenshots of the Book Keeper app showing different stages of browsing and interacting with books.*
+  *Screenshot of About Page.*
+</p>
+
+<p align="center">
+  <img src="ProjectOutputs/Snapshots/screenEthereal.jpg" alt="Image2"  />
+</p>
+
+<p align="center">
+  *Screenshot of Ethereal Journey Page.*
+</p>
+
+<p align="center">
+  <img src="ProjectOutputs/Snapshots/screenVideo.jpg" alt="Image3"  />
+</p>
+
+<p align="center">
+  *Screenshot of Watch Now Page.*
+</p>
+
+<p align="center">
+  <img src="ProjectOutputs/Snapshots/screenMemory.jpg" alt="Image4"  />
+</p>
+
+<p align="center">
+  *Screenshot of Memory Game Page.*
+</p>
+
+<p align="center">
+  <img src="ProjectOutputs/Snapshots/screenLogin.jpg" alt="Image5"  />
+</p>
+
+<p align="center">
+  *Screenshot of Login Page.*
+</p>
+
+<p align="center">
+  <img src="ProjectOutputs/Snapshots/screenSignup.jpg" alt="Image6"  />
+</p>
+
+<p align="center">
+  *Screenshot of Register Page.*
+</p>
+
+<p align="center">
+  <img src="ProjectOutputs/Snapshots/screenHome.jpg" alt="Image7"  />
+</p>
+
+<p align="center">
+  *Screenshot of Home Page.*
+</p>
+
+<p align="center">
+  <img src="ProjectOutputs/Snapshots/screenAdd.jpg" alt="Image8"  />
+</p>
+
+<p align="center">
+  *Screenshot of Add Dialog.*
+</p>
+
+<p align="center">
+  <img src="ProjectOutputs/Snapshots/screenViewP.jpg" alt="Image9"  />
+</p>
+
+<p align="center">
+  *Screenshot of View Dialog.*
+</p>
+
+<p align="center">
+  <img src="ProjectOutputs/Snapshots/screenUpdate.jpg" alt="Image10"  />
+</p>
+
+<p align="center">
+  *Screenshot of Edit Dialog.*
+</p>
+
+<p align="center">
+  <img src="ProjectOutputs/Snapshots/screenFP.jpg" alt="Image11"  />
+</p>
+
+<p align="center">
+  *Screenshot of Forgot Password Page.*
+</p>
+
+<p align="center">
+  <img src="ProjectOutputs/Snapshots/screenRC.jpg" alt="Image12"  />
+</p>
+
+<p align="center">
+  *Screenshot of Forgot Password Reset Code Dialog.*
+</p>
+
+<p align="center">
+  <img src="ProjectOutputs/Snapshots/screenRP.jpg" alt="Image13"  />
+</p>
+
+<p align="center">
+  *Screenshot of Reset Password Page.*
+</p>
+
+<p align="center">
+  <img src="ProjectOutputs/Snapshots/screenSnake1.jpg" alt="Image14"  />
+</p>
+
+<p align="center">
+  *Screenshot of Secret Snake Game (1) Page.*
+</p>
+
+<p align="center">
+  <img src="ProjectOutputs/Snapshots/screenSnake2.jpg" alt="Image15"  />
+</p>
+
+<p align="center">
+  *Screenshot of Secret Snake Game (2) Page.*
 </p>
 
 
