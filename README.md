@@ -88,7 +88,20 @@ Clone this repository to your local machine:
 
 ## 🤝 Contributing
 
-**No contributions are currently accepted for this project.** Feel free to use or explore the code as you wish, but please note that modifications or additions are not allowed unless explicitly authorized by the owner.
+I welcome contributions to **Geeky Shop**! If you want to contribute, follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-name`).
+3. Make your changes or improvements.
+4. Commit your changes (`git commit -am 'Add some feature'`).
+5. Push to your branch (`git push origin feature-name`).
+6. Open a Pull Request!
+
+Every contribution makes the project better. Thanks for helping out! ✨
+
+---
+
+**Note:** No contributions are currently accepted for this project. Feel free to use or explore the code as you wish, but please note that modifications or additions are not allowed unless explicitly authorized by the owner.
 
 ## 📃 License
 
