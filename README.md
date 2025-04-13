@@ -5,7 +5,7 @@
   <a href="https://geeky-shop-web-app.vercel.app/contact"><strong>Contact Me</strong></a>
 </p>
 
-Geeky Shop is a full-stack web application built with React, Vite, and TypeScript for the frontend and Node.js for the backend. The app offers a seamless experience to geek lovers by allowing them to manage an inventory of techie products, access fun games, and relax through immersive media.
+**Geeky Shop** is a full-stack web application built with React, Vite, and TypeScript for the frontend and Node.js for the backend. The app offers a seamless experience to geek lovers by allowing them to manage an inventory of techie products, access fun games, and relax through immersive media.
 
 ---
 
