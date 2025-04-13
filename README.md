@@ -101,9 +101,8 @@ Clone this repository to your local machine:
 
 Check out the demo of the working app below:
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/f379939e-10f7-4c70-864d-15b0b5558f80" alt="Working Demo" width="50%" />
-</p>
+https://github.com/user-attachments/assets/f379939e-10f7-4c70-864d-15b0b5558f80
+
 
 ---
 
