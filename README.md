@@ -97,11 +97,31 @@ Clone this repository to your local machine:
 
 ## 🚀 Working App Demo
 
-### Main App
+### Complete App Working Video
 
 Check out the demo of the working app below:
 
-https://github.com/user-attachments/assets/f379939e-10f7-4c70-864d-15b0b5558f80
+[Watch the Working Demo](https://github.com/user-attachments/assets/f379939e-10f7-4c70-864d-15b0b5558f80)
+
+### Forgot Password and Reset Password Working Video
+
+[Watch the Working Demo](https://github.com/user-attachments/assets/6378a5b5-7f11-4e73-b3e5-864a454eea03)
+
+### Ethereal Journey Page Working Video
+
+[Watch the Working Demo](https://github.com/user-attachments/assets/89113709-2a43-46fc-934b-43c5a8164367)
+
+### Entertaining and Knowledgeable - Watch Now Working Video
+
+[Watch the Working Demo](https://github.com/user-attachments/assets/708f27aa-6dd1-4e7a-b12d-883f101b0cad)
+
+### Memory Game Page Working Video
+
+[Watch the Working Demo](https://github.com/user-attachments/assets/3001f413-39b0-44f2-b10a-6d06df6348f2)
+
+### Secret Snake Game Page Working Video
+
+[Watch the Working Demo](https://github.com/user-attachments/assets/18632235-2849-47a3-a6d0-8483c62a160b)
 
 
 ---
