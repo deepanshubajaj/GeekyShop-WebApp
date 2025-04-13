@@ -41,18 +41,32 @@ Clone this repository to your local machine:
 ### 🚀 Frontend
 
 ```bash
-    cd frontend
+    cd GeekyShop-Frontend
+```
+```bash
     npm install
+```
+```bash
     npm run dev     # For local development
-    npm run build   # For production build using Vite
+```
+```bash
+    vite build   # For production build using Vite - npm run build
 ```
 ### ⚙️ Backend
 
 ```bash
-    cd backend
+    cd login_server
+```
+```bash
     npm install
+```
+```bash
     npm install -g nodemon  # Run once for local dev setup
+```
+```bash
     nodemon server.js       # For local development
+```
+```bash
     node server.js          # For production
 ```
 ### 🖼️ UI Sneak Peek
