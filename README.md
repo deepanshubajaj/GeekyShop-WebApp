@@ -35,7 +35,7 @@
 
 Clone this repository to your local machine:
 ```bash
-    git clone https://github.com/your-username/TasteBazaar-iOSApp.git
+    git clone https://github.com/deepanshubajaj/GeekyShop-WebApp.git
 ```
 
 ### 🚀 Frontend
