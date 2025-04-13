@@ -74,6 +74,10 @@ Clone this repository to your local machine:
 
 ### 🖼️ UI Sneak Peek
 
+<p align="center">
+  <img src="ProjectOutputs/Snapshots/screenAbout.jpg" alt="Image1" width="30%" />
+</p>
+
 
 ---
 
