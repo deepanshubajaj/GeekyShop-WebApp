@@ -1,7 +1,20 @@
 import { Component } from "react";
-import { Button, Box, Typography, CardContent } from "@mui/material";
+import {
+  Button,
+  Box,
+  Typography,
+  CardContent,
+  Dialog,
+  DialogContent,
+  IconButton,
+} from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import BlackBG from '../../assets/blackBG.jpg';
-import victoryAudio from '../../assets/audios/victory.mp3'; // Import the victory audio
+import victoryAudio from '../../assets/audios/victory.mp3';
+import funnyBgMusic from '../../assets/audios/funnyBgMusic.mp3';
+import WinGif from '../../assets/WinGame.gif';
 
 type CardType = {
   value: string;
@@ -13,27 +26,34 @@ interface GameState {
   flippedCards: number[];
   matchedCards: number[];
   isGameOver: boolean;
+  showWinDialog: boolean;
+  isMuted: boolean;
 }
 
 class Game extends Component<{}, GameState> {
   private victorySound: HTMLAudioElement;
-
-  state: GameState = {
-    cards: [],
-    flippedCards: [],
-    matchedCards: [],
-    isGameOver: false,
-  };
+  private bgMusic: HTMLAudioElement;
 
   constructor(props: {}) {
     super(props);
     this.victorySound = new Audio(victoryAudio);
+    this.bgMusic = new Audio(funnyBgMusic);
+    this.bgMusic.loop = true;
+
+    this.state = {
+      cards: [],
+      flippedCards: [],
+      matchedCards: [],
+      isGameOver: false,
+      showWinDialog: false,
+      isMuted: false,
+    };
   }
 
   shuffleDeck = (): CardType[] => {
     const cardImages = [
-      "🍎", "🍎", "🍌", "🍌", "🍒", "🍒", "🍓", "🍓", "🍍", "🍍",
-      "🍉", "🍉", "🍑", "🍑", "🍋", "🍋"
+      "🍎", "🍎", "🍌", "🍌", "🍒", "🍒", "🍓", "🍓",
+      "🍍", "🍍", "🍉", "🍉", "🍑", "🍑", "🍋", "🍋"
     ];
     return cardImages
       .map((card) => ({ value: card, id: Math.random() }))
@@ -42,14 +62,12 @@ class Game extends Component<{}, GameState> {
 
   handleCardClick = (index: number): void => {
     const { flippedCards, matchedCards } = this.state;
-
     if (flippedCards.length === 2 || matchedCards.includes(index)) return;
 
     this.setState(
-      (prevState) => {
-        const newFlippedCards = [...flippedCards, index];
-        return { flippedCards: newFlippedCards };
-      },
+      (prevState) => ({
+        flippedCards: [...prevState.flippedCards, index],
+      }),
       () => {
         if (this.state.flippedCards.length === 2) {
           this.checkForMatch();
@@ -79,11 +97,22 @@ class Game extends Component<{}, GameState> {
 
   checkWinCondition = (): void => {
     if (this.state.matchedCards.length === this.state.cards.length) {
-      this.setState({ isGameOver: true }, () => {
-        this.victorySound.loop = true; // Loop the victory sound
-        this.victorySound.play(); // Play the victory sound
+      this.setState({ isGameOver: true, showWinDialog: true }, () => {
+        this.bgMusic.pause();
+        this.victorySound.play();
+        this.victorySound.onended = () => {
+          if (!this.state.isMuted) this.bgMusic.play();
+        };
       });
     }
+  };
+
+  handleCloseWinDialog = (): void => {
+    this.setState({ showWinDialog: false }, () => {
+      this.victorySound.pause();
+      this.victorySound.currentTime = 0;
+      if (!this.state.isMuted) this.bgMusic.play();
+    });
   };
 
   startNewGame = (): void => {
@@ -93,20 +122,37 @@ class Game extends Component<{}, GameState> {
         flippedCards: [],
         matchedCards: [],
         isGameOver: false,
+        showWinDialog: false,
       },
       () => {
-        this.victorySound.pause(); // Stop the victory sound when starting a new game
-        this.victorySound.currentTime = 0; // Reset audio to start
+        this.victorySound.pause();
+        this.victorySound.currentTime = 0;
+        if (!this.state.isMuted) this.bgMusic.play();
       }
     );
   };
 
+  toggleMute = (): void => {
+    const newMuteState = !this.state.isMuted;
+    this.setState({ isMuted: newMuteState }, () => {
+      this.bgMusic.volume = newMuteState ? 0 : 1;
+    });
+  };
+
   componentDidMount() {
     this.startNewGame();
+    this.bgMusic.play().catch((e) => {
+      console.warn("Background music could not autoplay. Might need user interaction.");
+    });
+  }
+
+  componentWillUnmount() {
+    this.victorySound.pause();
+    this.bgMusic.pause();
   }
 
   render() {
-    const { cards, flippedCards, matchedCards, isGameOver } = this.state;
+    const { cards, flippedCards, matchedCards, showWinDialog, isMuted } = this.state;
 
     return (
       <Box
@@ -133,8 +179,24 @@ class Game extends Component<{}, GameState> {
             maxWidth: "700px",
             width: "100%",
             backdropFilter: "blur(5px)",
+            position: "relative",
           }}
         >
+          {/* 🔇 Mute/Unmute Button */}
+          <IconButton
+            onClick={this.toggleMute}
+            sx={{
+              position: "absolute",
+              top: 10,
+              right: 10,
+              color: "#fff",
+              backgroundColor: "rgba(0,0,0,0.3)",
+              '&:hover': { backgroundColor: "rgba(0,0,0,0.5)" }
+            }}
+          >
+            {isMuted ? <VolumeOffIcon /> : <VolumeUpIcon />}
+          </IconButton>
+
           <Typography
             variant="h4"
             sx={{
@@ -199,23 +261,6 @@ class Game extends Component<{}, GameState> {
             })}
           </Box>
 
-          {isGameOver && (
-            <Typography
-              variant="h5"
-              sx={{
-                marginTop: 3,
-                fontWeight: "bold",
-                fontSize: "24px",
-                textTransform: "uppercase",
-                background: "linear-gradient(135deg, #4caf50, #8bc34a)",
-                WebkitBackgroundClip: "text",
-                color: "transparent",
-              }}
-            >
-              You Win! 🎉
-            </Typography>
-          )}
-
           <Button
             onClick={this.startNewGame}
             variant="contained"
@@ -237,6 +282,46 @@ class Game extends Component<{}, GameState> {
             Start New Game
           </Button>
         </Box>
+
+        {/* 🎉 Win Dialog */}
+        <Dialog
+          open={showWinDialog}
+          onClose={this.handleCloseWinDialog}
+          PaperProps={{
+            sx: {
+              backgroundColor: "#fff",
+              borderRadius: 3,
+              padding: 2,
+              textAlign: "center",
+            },
+          }}
+        >
+          <DialogContent sx={{ position: "relative" }}>
+            <IconButton
+              onClick={this.handleCloseWinDialog}
+              sx={{
+                position: "absolute",
+                top: 8,
+                right: 8,
+              }}
+            >
+              <CloseIcon />
+            </IconButton>
+            <Typography variant="h4" fontWeight="bold" sx={{ mb: 2 }}>
+              You Win! 🎉
+            </Typography>
+            <img
+              src={WinGif}
+              alt="You Win"
+              style={{
+                width: "100%",
+                maxHeight: "300px",
+                objectFit: "contain",
+                borderRadius: "10px",
+              }}
+            />
+          </DialogContent>
+        </Dialog>
       </Box>
     );
   }

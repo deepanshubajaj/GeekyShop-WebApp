@@ -113,6 +113,13 @@ class UserLogin extends Component<Props, State> {
         this.setState((prevState) => ({ showPassword: !prevState.showPassword }));
     };
 
+    handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        // Convert email to lowercase before setting state
+        this.setState({
+            email: e.target.value.toLowerCase(),
+        });
+    };
+
     render() {
         return (
             <Container maxWidth="xs">
@@ -133,7 +140,7 @@ class UserLogin extends Component<Props, State> {
                             name="email"
                             label="Email Address"
                             value={this.state.email}
-                            onChange={(e) => this.setState({ email: e.target.value })}
+                            onChange={this.handleEmailChange}
                         />
 
                         <TextField

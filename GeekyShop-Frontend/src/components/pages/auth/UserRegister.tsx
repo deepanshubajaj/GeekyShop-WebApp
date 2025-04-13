@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { TextField, Box, Button, Alert, AlertColor, Typography, Container, Paper, IconButton, InputAdornment } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { NavLink, NavigateFunction, Navigate } from "react-router-dom";
+import { NavigateFunction, Navigate } from "react-router-dom";
 import { withRouter } from "../../../helpers/withRouter";
 const baseApiUrl = import.meta.env.VITE_API_BASE_URL;
 
@@ -43,6 +43,10 @@ class UserRegister extends Component<Props, State> {
             }
         };
     }
+
+    redirectToLogin = () => {
+        this.props.navigate('/login');
+    };
 
     handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -113,6 +117,13 @@ class UserRegister extends Component<Props, State> {
         this.setState((prevState) => ({ [field]: !prevState[field] } as Pick<State, typeof field>));
     };
 
+    handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        // Convert email to lowercase before setting state
+        this.setState({
+            email: e.target.value.toLowerCase(),
+        });
+    };
+
     render() {
         // Redirect to home page if already signed up
         if (localStorage.getItem("userIsUp")) {
@@ -131,17 +142,17 @@ class UserRegister extends Component<Props, State> {
 
                     <Box component="form" noValidate id="register-form" onSubmit={this.handleSubmit}>
                         <TextField fullWidth required margin="normal" label="Full Name" value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} />
-                        <TextField fullWidth required margin="normal" label="Email Address" value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })} />
+                        <TextField fullWidth required margin="normal" label="Email Address" value={this.state.email} onChange={this.handleEmailChange} />
                         <TextField fullWidth required margin="normal" label="Date of Birth" type="date" InputLabelProps={{ shrink: true }} value={this.state.dateOfBirth} onChange={(e) => this.setState({ dateOfBirth: e.target.value })} />
-                        
-                        <TextField 
-                            fullWidth 
-                            required 
-                            margin="normal" 
-                            label="Password" 
-                            type={this.state.showPassword ? "text" : "password"} 
-                            value={this.state.password} 
-                            onChange={(e) => this.setState({ password: e.target.value })} 
+
+                        <TextField
+                            fullWidth
+                            required
+                            margin="normal"
+                            label="Password"
+                            type={this.state.showPassword ? "text" : "password"}
+                            value={this.state.password}
+                            onChange={(e) => this.setState({ password: e.target.value })}
                             InputProps={{
                                 endAdornment: (
                                     <InputAdornment position="end">
@@ -153,14 +164,14 @@ class UserRegister extends Component<Props, State> {
                             }}
                         />
 
-                        <TextField 
-                            fullWidth 
-                            required 
-                            margin="normal" 
-                            label="Confirm Password" 
-                            type={this.state.showConfirmPassword ? "text" : "password"} 
-                            value={this.state.confirmPassword} 
-                            onChange={(e) => this.setState({ confirmPassword: e.target.value })} 
+                        <TextField
+                            fullWidth
+                            required
+                            margin="normal"
+                            label="Confirm Password"
+                            type={this.state.showConfirmPassword ? "text" : "password"}
+                            value={this.state.confirmPassword}
+                            onChange={(e) => this.setState({ confirmPassword: e.target.value })}
                             InputProps={{
                                 endAdornment: (
                                     <InputAdornment position="end">
@@ -175,7 +186,12 @@ class UserRegister extends Component<Props, State> {
                         <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 3, py: 1.5, textTransform: "none", fontSize: "1rem" }}>Sign Up</Button>
 
                         <Typography variant="body2" sx={{ mt: 2 }}>
-                            Already have an account? <NavLink to="/login" style={{ textDecoration: "none", color: "#1976D2" }}>Login</NavLink>
+                            Already have an account? <span
+                                onClick={this.redirectToLogin}
+                                style={{ textDecoration: "none", color: "#1976D2", cursor: "pointer" }}
+                            >
+                                Login
+                            </span>
                         </Typography>
                     </Box>
 

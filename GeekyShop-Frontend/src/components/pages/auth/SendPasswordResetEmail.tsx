@@ -36,7 +36,7 @@ class SendPasswordResetEmail extends Component<Props, State> {
   };
 
   handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ email: event.target.value });
+    this.setState({ email: event.target.value.toLowerCase() });
   };
 
   handleSubmit = async () => {
@@ -144,6 +144,7 @@ class SendPasswordResetEmail extends Component<Props, State> {
             backgroundSize: "contain",
             backgroundPosition: "center",
             display: { xs: "none", sm: "block" },
+            height: '500px',
           }}
         />
 
