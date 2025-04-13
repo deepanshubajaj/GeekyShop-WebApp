@@ -50,7 +50,7 @@ Clone this repository to your local machine:
     npm run dev     # For local development
 ```
 ```bash
-    vite build   # For production build using Vite - npm run build
+    vite build   # For production build using Vite or - npm run build
 ```
 ### ⚙️ Backend
 
@@ -76,7 +76,7 @@ Clone this repository to your local machine:
 
 - 🌐 [Geeky Shop Live](https://geeky-shop-web-app.vercel.app/)
 
-- 📩 [Contact Me](https://geeky-shop-web-app.vercel.app/contact)
+- 📩 [You can Contact Me](https://geeky-shop-web-app.vercel.app/contact)
 
 ---
 
