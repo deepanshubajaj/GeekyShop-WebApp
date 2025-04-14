@@ -277,7 +277,7 @@ Check out the demo of the working app below:
 
 ## 🤝 Contributing
 
-Thank you for considering this project!
+Thank you for considering this project! but 
 **No contributions are currently accepted for this project.** Feel free to use or explore the code as you wish, but please note that modifications or additions are not allowed unless explicitly authorized by the author - **Deepanshu Bajaj**.
 
 ---
@@ -285,5 +285,5 @@ Thank you for considering this project!
 ## 📃 License
 
 This project is provided for **Educational, Learning and Personal Reference Purposes Only**.  
-Commercial use, redistribution, or modification is **not permitted** without explicit permission from the author — **Deepanshu Bajaj**.
+Commercial Use, Redistribution, or Modification is **Not Permitted** without explicit permission from the author — **Deepanshu Bajaj**.
 
