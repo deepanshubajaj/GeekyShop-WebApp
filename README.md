@@ -277,12 +277,13 @@ Check out the demo of the working app below:
 
 ## 🤝 Contributing
 
+Thank you for considering this project!
 **No contributions are currently accepted for this project.** Feel free to use or explore the code as you wish, but please note that modifications or additions are not allowed unless explicitly authorized by the author - **Deepanshu Bajaj**.
 
 ---
 
 ## 📃 License
 
-This project is provided for **educational and personal reference purposes only**.  
-Commercial use, redistribution, or modification is **not permitted** without explicit permission from the author — Deepanshu Bajaj.
+This project is provided for **Educational, Learning and Personal Reference Purposes Only**.  
+Commercial use, redistribution, or modification is **not permitted** without explicit permission from the author — **Deepanshu Bajaj**.
 
