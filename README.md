@@ -277,24 +277,12 @@ Check out the demo of the working app below:
 
 ## 🤝 Contributing
 
-I welcome contributions to **Geeky Shop**! If you want to contribute, follow these steps:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-name`).
-3. Make your changes or improvements.
-4. Commit your changes (`git commit -am 'Add some feature'`).
-5. Push to your branch (`git push origin feature-name`).
-6. Open a Pull Request!
-
-Every contribution makes the project better. Thanks for helping out! ✨
-
----
-
-**Note:** **No contributions are currently accepted for this project.** Feel free to use or explore the code as you wish, but please note that modifications or additions are not allowed unless explicitly authorized by the owner - **Deepanshu Bajaj**.
+**No contributions are currently accepted for this project.** Feel free to use or explore the code as you wish, but please note that modifications or additions are not allowed unless explicitly authorized by the author - **Deepanshu Bajaj**.
 
 ---
 
 ## 📃 License
 
-This project is **"All Rights Reserved"**. You may not use, modify, or distribute this code without the explicit permission of the owner - **Deepanshu Bajaj**.
+This project is provided for **educational and personal reference purposes only**.  
+Commercial use, redistribution, or modification is **not permitted** without explicit permission from the author — Deepanshu Bajaj.
 
