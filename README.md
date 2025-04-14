@@ -215,6 +215,14 @@ Clone this repository to your local machine:
   *Screenshot of Secret Snake Game (2) Page.*
 </p>
 
+<p align="center">
+  <img src="ProjectOutputs/Snapshots/ServerWorkingPic.jpg" alt="Image16"  />
+</p>
+
+<p align="center">
+  *Screenshot of Server Running in Backend.*
+</p>
+
 
 ---
 
