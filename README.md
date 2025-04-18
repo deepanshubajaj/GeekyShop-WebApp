@@ -277,13 +277,20 @@ Check out the demo of the working app below:
 
 ## 🤝 Contributing
 
-Thank you for considering this project! but 
-**No contributions are currently accepted for this project.** Feel free to use or explore the code as you wish, but please note that modifications or additions are not allowed unless explicitly authorized by the author - **Deepanshu Bajaj**.
+Thank you for your interest in contributing to this project!  
+I welcome contributions from the community.
+
+- You are free to use, modify, and redistribute this code under the terms of the MIT License.
+- If you'd like to contribute, please **open an issue** or **submit a pull request**.
+- All contributions will be reviewed and approved by the author — **Deepanshu Bajaj**.
 
 ---
 
 ## 📃 License
 
-This project is provided for **Educational, Learning and Personal Reference Purposes Only**.  
-Commercial Use, Redistribution, or Modification is **Not Permitted** without explicit permission from the author — **Deepanshu Bajaj**.
+This project is licensed under the [MIT License](./LICENSE).  
+You are free to use this project for personal, educational, or commercial purposes — just make sure to provide proper attribution.
+
+> **Clarification:** Commercial use includes, but is not limited to, use in products,  
+> services, or activities intended to generate revenue, directly or indirectly.
 
