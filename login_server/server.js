@@ -23,6 +23,11 @@ app.use(express.json()); // Automatically parses incoming JSON data
 // Define routes for the all API's 
 app.use('/user', UserRouter);
 
+// Root route for health check or ping
+app.get('/', (req, res) => {
+    res.send('✅ GeekyShop Backend is running on Render!');
+});
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
